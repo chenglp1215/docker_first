@@ -1,0 +1,19 @@
+version: '2'
+
+services:
+    web:
+        build:
+            context: .
+            dockerfile: ./Dockerfile
+        image: chenglp:web
+        command: python app.py
+        ports:
+                - "5000:5000"
+        volumes: 
+                - .:/Users/chenglp/Program/docker_play/first
+        links: 
+                - redis
+
+    redis:
+        image: redis
+        
